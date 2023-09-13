@@ -1,0 +1,21 @@
+body {
+    background-color: #7fffd4;
+}
+
+h1 {
+    color: #2590c8;
+    text-align: center;
+}
+
+p{
+    font-family: Verdana;
+    font-size: 20px;
+}
+
+.cases_text {
+    color: #2590c8;
+}
+
+.deaths_text {
+    color: #d13141;
+}
