@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": { "text": "Total crashes categorised by gender" },
+  "data": {
+  "url": "data/ardd_fatalities.csv"
+  },
+  "mark": "bar",
+  
+  "encoding": {
+    "x":{
+      "field": "Gender",
+      "type": "nominal",
+      "axis":{
+        "title": "Gender",
+        "labelExpr": "datum.Gender[0]"
+      }
+
+    },
+    "y":{
+      "field": "Crash ID",
+      "aggregate": "count",
+      "axis":{
+        "title": "Number of crashes"
+        }
+      }
+    }
+  
+}
