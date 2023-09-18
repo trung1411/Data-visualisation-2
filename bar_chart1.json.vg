@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": { "text": "Total crashes in different states in the past 10 years (2013 - July 2023)" },
+  "title": { "text": "Total crashes in different states in the past 5 years (2018 - July 2023)" },
   "data":{
     "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/ardd_fatalities.csv",
     "format": {"type": "csv"}
