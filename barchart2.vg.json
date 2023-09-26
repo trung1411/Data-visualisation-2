@@ -38,20 +38,32 @@
     "encoding": {
       "x": {
         "field": "Age Group", 
-        "type": "nominal", "axis": {
-          "labelExpr": "[datum.value == -9 ? 'Unknown' : datum.value]"
+        "type": "nominal", 
+        "axis": {
+          "labelExpr": "[datum.value == -9 ? 'Unknown' : (datum.value == '0_to_16') ? '0-16' : (datum.value == '17_to_25') ? '17-25' : (datum.value == '26_to_39') ? '26-35' : (datum.value == '40_to_64') ? '40-64' : (datum.value == '65_to_74') ? '65-74' : '>75']",
+          "labelAngle": 0
         }
       },
       "y":{
         "field": "CrashID",
         "type": "quantitative",
         "aggregate": "count"},
-        "color": {"field": "Gender", "type": "nominal", "legend":{"values":["Male", "Female"]
-  
+      "color": {
+        "field": "Gender",
+        "legend": {
+          "values": ["Male", "Female"]
         }
+        
+      }
+
+        
+  
+        
     
       }
+      
   
-    }}
+    }
     
-  
+    
+   
