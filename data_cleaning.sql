@@ -1,4 +1,4 @@
-select * from ardd_fatalities;
+select count(*) from ardd_fatalities;
 select distinct age_group from ardd_fatalities;
 
 -- Updating age group
@@ -27,4 +27,23 @@ select count(*) from ardd_fatalities where speed_limit = -9;
 delete from ardd_fatalities where speed_limit = -9;
 delete from ardd_fatalities where gender = 'unknown';
 delete from ardd_fatalities where road_user = 'Other/-9';
-select count(*) from ardd_fatalities;
+
+select * from ardd_fatalities;
+
+select * from fit3179_fat_per_year;
+drop table fit3179_fat_per_year;
+create table FIT3179_fat_per_year as
+select count(crash_id) as fatalities_per_year, state, year from ardd_fatalities group by state, year order by year asc, state asc;
+
+update fit3179_fat_per_year set state =  
+case
+when state = 'ACT' then 'Australian Capital Territory'
+when state = 'NSW' then 'New South Wales'
+when state = 'NT' then 'Northern Territory'
+when state = 'Qld' then 'Queensland'
+when state = 'SA' then 'South Australia'
+when state = 'Tas' then 'Tasmania' 
+when state = 'Vic' then 'Victoria'
+else 'Western Australia' end;
+
+select * from fit3179_fat_per_year;
