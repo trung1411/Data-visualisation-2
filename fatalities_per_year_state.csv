@@ -1,7 +1,7 @@
 Fatalities,State,Year
 9,"Australian Capital Territory",2018
 347,"New South Wales",2018
-50,"Northen Territory",2018
+50,"Northern Territory",2018
 245,"Queensland",2018
 80,"South Australia",2018
 32,"Tasmania",2018
@@ -9,7 +9,7 @@ Fatalities,State,Year
 159,"Western Australia",2018
 6,"Australian Capital Territory",2019
 353,"New South Wales",2019
-36,"Northen Territory",2019
+36,"Northern Territory",2019
 219,"Queensland",2019
 114,"South Australia",2019
 29,"Tasmania",2019
@@ -17,7 +17,7 @@ Fatalities,State,Year
 163,"Western Australia",2019
 7,"Australia Capital Territory",2020
 284,"New South Wales",2020
-31,"Northen Territory",2020
+31,"Northern Territory",2020
 278,"Queensland",2020
 93,"South Australia",2020
 38,"Tasmania",2020
@@ -25,7 +25,7 @@ Fatalities,State,Year
 155,"Western Australia",2020
 11,"Australian Capital Territory",2021
 275,"New South Wales",2021
-35,"Northen Territory",2021
+35,"Northrn Territory",2021
 277,"Queensland",2021
 99,"South Australia",2021
 36,"Tasmania",2021
@@ -41,7 +41,7 @@ Fatalities,State,Year
 175,"Western Australia",2022
 3,"Australian Capital Territory",2023
 210,"New South Wales",2023
-7,"Northen Territory",2023
+7,"Northern Territory",2023
 156,"Queensland",2023
 71,"South Australia",2023
 18,"Tasmania",2023
