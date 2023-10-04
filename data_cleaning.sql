@@ -47,3 +47,39 @@ when state = 'Vic' then 'Victoria'
 else 'Western Australia' end;
 
 select * from fit3179_fat_per_year;
+
+
+select * from ardd_fatalities8;
+
+-- State
+select distinct(state) from ardd_fatalities;
+-- ==> No unknown value for state
+
+-- Create table with number of fatalities aggregated by state and year
+select * from fit3179_fat_per_year;
+
+drop table fit3179_fat_per_year;
+create table fit3179_fat_per_year as select count(crash_id) as fatalities, state, year from ardd_fatalities group by state, 
+year order by year, state asc;
+
+
+
+-- Gender
+select distinct(gender) from ardd_fatalities;
+-- ==> There are unknown/ na values assigned value -9
+select count(gender) from ardd_fatalities where gender = '-9';
+update ardd_fatalities set gender = 'Unknown' where gender = '-9';
+
+-- Create table with number of fatalities aggregated by gender and year
+drop table fit3179_fat_per_year_gender;
+create table fit3179_fat_per_year_gender as select count(crash_id) as fatalities, gender, month, year, month||year as time_id from ardd_fatalities group by gender, month, year order by year, month asc;
+
+
+-- Updating time column for fit_3179_fat_per_year_gender
+alter table fit3179_fat_per_year_gender add (time DATE);
+update fit3179_fat_per_year_gender set time = to_date(time_id, 'MMYYYY') where month > 9;
+update fit3179_fat_per_year_gender set time_id = '0'||time_id where month < 10;
+update fit3179_fat_per_year_gender set time = to_date(time_id, 'MMYYYY') where month < 10;
+
+alter table fit3179_fat_per_year_gender drop column time_id;
+select * from fit3179_fat_per_year_gender;
