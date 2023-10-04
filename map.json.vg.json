@@ -17,36 +17,71 @@
             }
         }
     ],
-    "data":{
-        "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/aus_state_border.json",
-        "format": {"type": "topojson", "feature": "AUS_2016_AUST"}
-    },
-    "transform": [
+    "layer": [
         {
-            "lookup": "properties.STE_NAME16",
-            "from":{
-                "data": {
-                    "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/fatalities_per_year.csv"
-                },
-                "key": "State",
-                "fields": ["Fatalities"]
-            }
-        }, 
-        {"calculate": "datum.Fatalities + 0.1", "as": "Fatalities per year"}, 
-        {"filter": "datum.Year == Year_selection"}
-    ],
-    "mark": { "type": "geoshape"},
-    "encoding": {
-        "color":{
-            "field": "Fatalities per yer",
-            "type": "quantitative",
-            "scale": {"type": "log"}
+            "data":{
+                "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/aus_state_border.json",
+                "format": {"type": "topojson", "feature": "AUS_2016_AUST"}
+            },
+            "transform": [
+                {
+                    "calculate": " 'Data is not available in ' + datum.properties.STE_NAME16",
+                    "as": "note"
+                }
+            ], 
+            "mark": {
+                "type": "geoshape",
+                "fill": "#ddd",
+                "stroke": "white",
+                "strokeWidth": 1
+            },
+            "encoding": {"tooltip": {"field": "note"}}
         },
-        "tooltip": [
-            {"field": "properties.STE_NAME16", "type": "nominal", "title": "State"},
-            { "field": "Fatalities", "type": "quantitative"}
-        ]
-    }
+        {
+
+            "data":{
+                "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/fatalities_per_year.csv"
+                
+            },
+            "transform": [
+                {
+                    "lookup": "State",
+                    "from":{
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/aus_state_border.json",
+                            "format": {
+                                "type": "topojson",
+                                "feature": "AUS_2016_AUST"
+                            }
+                        },
+                        
+                        "key": "properties.STE_NAME16"
+        
+                    }, 
+                    "as": "state"
+                }, 
+                {"filter": "datum.Year == Year_selection"}
+            ],
+            "mark": { "type": "geoshape", "stroke": "#fff", "strokeWidth": 0.5},
+            "encoding": {
+                "shape": { "field": "state", "type": "geojson"},
+                "color":{
+                    "field": "Fatalities",
+                    "type": "quantitative",
+                    "title": "Fatalities per year",
+                    "scale": {"domain": [0, 400], "scheme":"bluegreen"},
+                    "legend": {"format": ".2s"}
+                },
+                "tooltip": [
+                    {"field": "State", "type": "nominal", "title": "State"},
+                    { "field": "Fatalities", "type": "quantitative", "title": "Total road crash fatalities"}
+                ]
+            }
+        }
+        
+    ],
+    "config": {}
+    
 }
     
         
