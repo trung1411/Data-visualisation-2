@@ -1,29 +1,57 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": { "text": "Map showing the distribution of different car crash fatalities in australia" },
+    "width": 800,
+    "height": 450,
+    "title": { "text": "Road Crash Fatality in Australia from 2018 to 2023" },
     "projection": {"type": "equalEarth"},
-    "data":{
-        "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/aus_state_border.json",
-        "format": {"type": "topojson", "feature": "ne_110m"}
-    },
-    "mark": {"type": "geoshape", "fill": "lightgray" , "stroke": "white"},
-    "transform": [
+    "params": [
         {
-            "lookup": "properties.NAME",
-            "from":{
-                "data": {
-                    "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/ardd_fatalities.csv"
-                },
-                "key": "State",
-                "fields": []
+            "name": "Year_selection",
+            "value": 2023,
+            "bind": {
+                "input": "range",
+                "min": 2018,
+                "max": 2023,
+                "step": 1,
+                "name": "Year: "
             }
         }
-    ]
+    ],
+    "data":{
+        "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/aus_state_border.json",
+        "format": {"type": "topojson", "feature": "AUS_2016_AUST"}
+    },
+    "transform": [
+        {
+            "lookup": "properties.STE_NAME16",
+            "from":{
+                "data": {
+                    "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/fatalities_per_year.csv"
+                },
+                "key": "State",
+                "fields": ["Fatalities"]
+            }
+        }, 
+        {"calculate": "datum.Fatalities + 0.1", "as": "Fatalities per year"}, 
+        {"filter": "datum.Year == Year_selection"}
+    ],
+    "mark": { "type": "geoshape"},
+    "encoding": {
+        "color":{
+            "field": "Fatalities per yer",
+            "type": "quantitative",
+            "scale": {"type": "log"}
+        },
+        "tooltip": [
+            {"field": "properties.STE_NAME16", "type": "nominal", "title": "State"},
+            { "field": "Fatalities", "type": "quantitative"}
+        ]
+    }
+}
+    
         
             
 
-    
 
-}
     
   
