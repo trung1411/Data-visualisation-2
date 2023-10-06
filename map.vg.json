@@ -3,7 +3,7 @@
     "width": 800,
     "height": 450,
     "title": { "text": "Road Crash Fatality in Australia from Jan 2018 to July 2023" },
-    "projection": {"type": "equalEarth"},
+    "projection": {"type": "equirectangular"},
     "params": [
         {
             "name": "Year_selection",
