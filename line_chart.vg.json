@@ -35,7 +35,7 @@
             {"field": "Male", "type": "quantitative"},
             {"field": "Female", "type": "quantitative"},
             {"field": "Unknown", "type": "quantitative"},
-            {"field": "Date", "type": "temporal"}
+            {"field": "Time", "type": "temporal"}
           ]
         },
         "params": [{
