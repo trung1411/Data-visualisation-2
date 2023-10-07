@@ -5,16 +5,16 @@
     "data":{
       "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/fatalities_per_year_gender.csv",
       "format": {"type": "csv"}
-      
+    
     },
+    "view": { "opacity": 0.4},
     "params": [{
       "name": "gender",
       "select": {"type": "point", "fields": ["Gender"]},
       "bind": "legend"
       
     }],
-    "width": 480,
-    "height": 240,
+    "width": "container",
     "mark": "line",
     "encoding": {
       "x": {
@@ -40,6 +40,8 @@
         "value": 0.2
       }
       
+    }, 
+    "config": {
     }
 
     
