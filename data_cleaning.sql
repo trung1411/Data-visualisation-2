@@ -1,7 +1,27 @@
-select count(*) from ardd_fatalities;
+select count(*), gender from ardd_fatalities group by gender; -- 6457 fatalities
 select distinct age_group from ardd_fatalities;
+select count(*) from ardd_fatal_crashes; -- 5978 fatal crashes
 
--- Updating age group
+create table crashes_fatalities 
+as select count(crash_id) as number_of_crashes, number_of_fatalities from ardd_fatal_crashes group by number_of_fatalities;
+
+
+
+-- Update state in ardd_fatal_crashes
+alter table ardd_fatal_crashes modify state varchar(100);
+update ardd_fatal_crashes set state =  
+case
+when state = 'ACT' then 'Australian Capital Territory'
+when state = 'NSW' then 'New South Wales'
+when state = 'NT' then 'Northern Territory'
+when state = 'Qld' then 'Queensland'
+when state = 'SA' then 'South Australia'
+when state = 'Tas' then 'Tasmania' 
+when state = 'Vic' then 'Victoria'
+else 'Western Australia' end;
+
+
+-- Updating age group in ardd_fatalities
 update ardd_fatalities set age_group = 
 case 
 when age_group = '75_or_older' then '>75'
@@ -14,9 +34,9 @@ else 'unknown'
 end where age_group in ('75_or_older', '17_to_25', '26_to_39','65_to_74','0_to_16','40_to_64');
 
 -- Updating gender
-select * from ardd_fatalities;
-select distinct gender from ardd_fatalities;
 update ardd_fatalities set gender = 'unknown' where gender = '-9';
+select * from ardd_fatal_crashes;
+
 
 -- Updating age
 select * from ardd_fatalities;
@@ -97,5 +117,5 @@ else 'Western Australia' end;
 select * from fit3179_fat_per_year_gender;
 
 
--- 
+
 
