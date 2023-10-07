@@ -1,11 +1,21 @@
 body {
-    background-color: #7fffd4;
+    background-image: url('image/road.jpg');
+    background-size: cover;
 }
+
+.bolded_black{
+    color: black;
+    font-weight:bold;
+}
+
+
 
 h1 {
     color: #2590c8;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
+    background-color: aliceblue;
+    background-size: cover;
 }
 
 p{
@@ -14,17 +24,26 @@ p{
 }
 
 #par1 {
-    text-align: left;
+    text-align: center;
+    width: 60%;
+    display: inline-block;
+    font-family: 'Times New Roman', Times, serif;
     border: 1px solid black;
+    font-weight: 100;
+    background-color: antiquewhite;
     /* Setting the border */
+    
 }
 
-#par2 {
-    text-align: left;
-    border: 1px solid black;
 
+
+#vis_cap {
+    background-color: whitesmoke;
+    font-size: small;
+    background-size: contain;
+    display: inline-block;
+    
 }
 
-#bar_chart{
-    justify-content: center;
-}
+
+

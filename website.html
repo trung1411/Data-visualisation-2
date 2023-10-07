@@ -12,37 +12,60 @@
     <link rel = "stylesheet" href="website.css">
     <title>First Vega-Lite graph </title>
 </head>
-<body>
-    <h1>ROAD SAFETY DOWN UNDER: A 5-Year Analysis of Fatalities on Australian Roads</h1>
+<body> 
+    <h1> ROAD SAFETY DOWN UNDER: A 5-Year Analysis of Fatalities on Australian Roads</h1>
     <h2> NAME: THANH TRUNG TRAN
-
-    </h2>
-    <div id="chloro_map">
-          
-    </div>
-    <div> 
-        <p id = "par1"> 
-            The australian road deaths Datbase (ARDD) provide basic detail of road transport crash fatalities in Australia as reported
-            by the police each month to the State and Territory road safety authorities. This website aims to generate several visualisations
-            to delve into and perform a more insightful analysis on the number of crashes and fatalities in different States of Australia in the
-            last 5 years - from Jan 2018 to July 2023
-            
-         </p>
-    </div>
     
-    <div 
-        id = "bar_chart">
-    </div> 
+        <div> 
+            <p id = "par1"> 
+                The 
+                <span class = "bolded_black"> <a href = "https://data.gov.au/data/dataset/australian-road-deaths-database" > Australian Road Deaths Datbase (ARDD) </a>  </span>  
+                provide basic detail of road transport crash fatalities in Australia as reported
+                by the police each month to the State and Territory road safety authorities. This website aims to generate several visualisations
+                to delve into and perform a more insightful analysis on the number of crashes and fatalities in different States of Australia in the
+                last 5 years - from Jan 2018 to July 2023
+                
+             </p>
+        </div>
+    </h2>
 
-    <div> id = "line_chart" </div>
-
+    <table style = "width: 100%;">
+        
+        <tr> 
+            <td> <div style = "display: block;" id = "chloro_map"></div></td>
+        </tr>
+        <thread> 
+            <tr> 
+                <th colspan="2" id = "vis_cap"> Visualisation 1: Chloropleth Map</th>
+            </tr>
+        </thread>
+    </table>
+    <!-- <div style ="width: fit-content;" id="chloro_map"> </div> -->
+    
+    
+    <!-- <div     id = "bar_chart"></div> -->
     <div>
-        <p id = "par2"> 
+        <p id = "par1">
+             
             While the current total sex ratio of the total population is 0.994 (meaning there are 994 males per 1000 females). The yearly road crash 
             fatalities suggest that the total number of road fatalities for male has been consitently higher than that of female for the past 5 years.
             Such trend is showcased by this area line chart which depicts the number of road crashes fatalities categorised by Gender from Jan 2018 to July 2023            
          </p>
     </div>
+
+    <table style ="width: 100%;">
+        <tr> 
+            <td> <div style="display: block;" id = "line_chart"> </div></td>
+        </tr>
+        <thread> 
+            <tr> 
+                <th colspan = "2" id = "vis_cap"> Visualisation 2: Time series Line Chart </th>
+            </tr>
+        </thread>
+    </table>
+    <!-- <div style="width: fit-content;" id = "line_chart">  </div> -->
+
+    
     
     
 </body>
