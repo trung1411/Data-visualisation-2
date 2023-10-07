@@ -1,10 +1,18 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": { "text": "Number of fatalities categorised by gender from Jan 2018 to July 2023" },
+    
     "data":{
       "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/fatalities_per_year_gender.csv",
       "format": {"type": "csv"}
+      
     },
+    "params": [{
+      "name": "gender",
+      "select": {"type": "point", "fields": ["Gender"]},
+      "bind": { "legend": "dbclick"}
+      
+    }],
     "width": 480,
     "height": 240,
     "mark": "area",
@@ -24,7 +32,8 @@
       },
       "tooltip":[
         {"field": "Gender", "type": "nominal", "title": "Gender"},
-        {"field": "Fatalities", "type": "quantitative", "title": "Number of fatalities in:"}
+        {"field": "Fatalities", "type": "quantitative", "title": "Number of fatalities in"},
+        {"field": "Time", "type": "temporal", "title": "Time period"}
       ]
       
       
