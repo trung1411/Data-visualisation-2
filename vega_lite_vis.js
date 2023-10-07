@@ -13,3 +13,8 @@ var vg_3 = "line_chart.vg.json";
 vegaEmbed("#line_chart", vg_3).then(function(result) {
     // Access the Vega view instance(https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
+
+var vg_4 = "pie_chart.vg.json";
+vegaEmbed("#pie_chart", vg_3).then(function(result) {
+        // Access the Vega view instance(https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
