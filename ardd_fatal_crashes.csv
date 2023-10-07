@@ -1,5 +1,4 @@
-Crash ID,State,Month,Year,Dayweek,Time,Crash Type,Number Fatalities,"Bus 
-Involvement",Heavy Rigid Truck Involvement,Articulated Truck Involvement,Speed Limit,National Remoteness Areas,SA4 Name 2021,National LGA Name 2021,National Road Type,Christmas Period,Easter Period,Day of week,Time of Day
+Crash ID,State,Month,Year,Dayweek,Time,Crash Type,Number Fatalities,Bus Involvement,Heavy Rigid Truck Involvement,Articulated Truck Involvement,Speed Limit,National Remoteness Areas,SA4 Name 2021,National LGA Name 2021,National Road Type,Christmas Period,Easter Period,Day of week,Time of Day
 20231118,NSW,7,2023,Monday,6:49,Multiple,1,No,No,No,100,Inner Regional Australia,Capital Region,Eurobodalla,National or State Highway,No,No,Weekday,Day
 20231155,NSW,7,2023,Saturday,13:30,Multiple,1,No,No,No,60,Major Cities of Australia,Sydney - Inner South West,Canterbury-Bankstown,Collector Road,No,No,Weekend,Day
 20231022,NSW,7,2023,Saturday,20:00,Multiple,1,No,No,No,60,Major Cities of Australia,Sydney - Ryde,Parramatta,Arterial Road,No,No,Weekend,Night
