@@ -72,8 +72,8 @@ update ardd_fatalities set gender = 'Unknown' where gender = '-9';
 
 -- Create table with number of fatalities aggregated by gender and year
 drop table fit3179_fat_per_year_gender;
-create table fit3179_fat_per_year_gender as select count(crash_id) as fatalities, gender, month, year, month||year as time_id from ardd_fatalities group by gender, month, year order by year, month asc;
-
+create table fit3179_fat_per_year_gender as select count(crash_id) as fatalities, gender, state, month, year, month||year as time_id from ardd_fatalities group by gender, state, month, year order by year, month, state asc;
+select * from fit3179_fat_per_year_gender;
 
 -- Updating time column for fit_3179_fat_per_year_gender
 alter table fit3179_fat_per_year_gender add (time DATE);
@@ -81,5 +81,21 @@ update fit3179_fat_per_year_gender set time = to_date(time_id, 'MMYYYY') where m
 update fit3179_fat_per_year_gender set time_id = '0'||time_id where month < 10;
 update fit3179_fat_per_year_gender set time = to_date(time_id, 'MMYYYY') where month < 10;
 
-alter table fit3179_fat_per_year_gender drop column time_id;
+
+alter table fit3179_fat_per_year_gender modify state varchar(100);
+update fit3179_fat_per_year_gender set state =  
+case
+when state = 'ACT' then 'Australian Capital Territory'
+when state = 'NSW' then 'New South Wales'
+when state = 'NT' then 'Northern Territory'
+when state = 'Qld' then 'Queensland'
+when state = 'SA' then 'South Australia'
+when state = 'Tas' then 'Tasmania' 
+when state = 'Vic' then 'Victoria'
+else 'Western Australia' end;
+
 select * from fit3179_fat_per_year_gender;
+
+
+-- 
+
