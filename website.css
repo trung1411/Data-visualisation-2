@@ -8,7 +8,10 @@ body {
     font-weight:bold;
 }
 
-
+.bolded_blue{
+    color: blue;
+    font-weight:bold;
+}
 
 h1 {
     color: #2590c8;
