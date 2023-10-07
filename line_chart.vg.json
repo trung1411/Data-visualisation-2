@@ -7,43 +7,52 @@
       "format": {"type": "csv"}
     
     },
-    "view": { "opacity": 0.4},
-    "params": [{
-      "name": "gender",
-      "select": {"type": "point", "fields": ["Gender"]},
-      "bind": "legend"
-      
-    }],
-    "width": "container",
-    "mark": "line",
     "encoding": {
       "x": {
         "field": "Time",
         "timeUnit": "yearmonth",
-        "axis": {"title": "", "grid": false}
+        "type": "temporal"
+      }},
+    "layer": [
+      { "encoding": {
+        "color": { "field": "Gender", "type": "nominal"},
+        "y": {"field": "Fatalities", "type": "quantitative"}
       },
-      "y": {"field": "Fatalities", "type": "quantitative"},
-      "color":{
-        "field": "Gender",
-        "scale": {
-          "range": ["#a6cee3", "#1f78b4", "#b2df8a"]
-        }
-      },
-      "tooltip":[
-        {"field": "Gender", "type": "nominal", "title": "Gender"},
-        {"field": "Fatalities", "type": "quantitative", "title": "Number of fatalities"},
-        {"field": "Time", "type": "temporal", "title": "Time period"}
-      ],
-      
-      "opacity": {
-        "condition": {"param": "gender", "value": 1},
-        "value": 0.2
+      "layer": [
+        {"mark": "line"},
+        {"transform": [{"filter": { "param": "hover", "empty": false}}], "mark": "point"}
+      ]
+    },
+    {
+      "transform": [{ "pivot": "Gender", "value": "Fatalities", "groupby": ["Time"]}],
+      "mark": "rule",
+      "encoding": {
+        "opacity": {
+          "condition": {"value": 0.3, "param": "hover", "empty": false},
+          "value": 0
+          },
+          "tooltip": [
+            {"field": "Male", "type": "quantitative"},
+            {"field": "Female", "type": "quantitative"},
+            {"field": "Unknown", "type": "quantitative"},
+            {"field": "Date", "type": "temporal"}
+          ]
+        },
+        "params": [{
+          "name": "hover",
+          "select":{
+            "type": "point",
+            "fields": ["Time"],
+            "nearest": true,
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }]
+        
       }
-      
-    }, 
+    ],
     "config": {
     }
-
-    
-  }    
+  }
+        
    
