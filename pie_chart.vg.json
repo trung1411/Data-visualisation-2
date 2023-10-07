@@ -7,9 +7,14 @@
       "format": {"type": "csv"}
 
     },
-    "mark": "arc",
+    "mark": {"type": "bar", "tooltip": true}
+    ,
     "encoding": {
-        "theta": {"field": "number_of_crashes", "type": "quantitative"},
-        "color": {"field": "number_of_fatalities", "type": "nominal"}
+        "y": {"field": "number_of_crashes", "type": "quantitative",  "title": "Total count"},
+        "x": {"field": "number_of_fatalities", "type": "nominal", "title": "Number of fatalities", "sort": "-y"}
+        
+        
+        
     }
+    
 }
