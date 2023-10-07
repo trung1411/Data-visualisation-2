@@ -1,0 +1,20 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": { "text": "Seriousness of crashes in the past 5 years" },
+    
+    "data":{
+      "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/crashes_fatalities.csv",
+      "format": {"type": "csv"}
+
+    },
+    "mark": {"type": "bar", "tooltip": true}
+    ,
+    "encoding": {
+        "y": {"field": "number_of_crashes", "type": "quantitative",  "title": "Total count"},
+        "x": {"field": "number_of_fatalities", "type": "nominal", "title": "Number of fatalities", "sort": "-y"}
+        
+        
+        
+    }
+    
+}
