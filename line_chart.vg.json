@@ -10,32 +10,35 @@
     "params": [{
       "name": "gender",
       "select": {"type": "point", "fields": ["Gender"]},
-      "bind": { "legend": "dbclick"}
+      "bind": "legend"
       
     }],
     "width": 480,
     "height": 240,
-    "mark": "area",
+    "mark": "line",
     "encoding": {
       "x": {
         "field": "Time",
         "timeUnit": "yearmonth",
-        "axis": {"title": "", "tickCount": 12, "grid": false}
+        "axis": {"title": "", "grid": false}
       },
       "y": {"field": "Fatalities", "type": "quantitative"},
       "color":{
         "field": "Gender",
         "scale": {
-          "range": ["#fdbe85", "#fd8d3c", "#e6550d"]
-        },
-        "legend": {"values": ["Male", "Female", "Unknown"]}
+          "range": ["#a6cee3", "#1f78b4", "#b2df8a"]
+        }
       },
       "tooltip":[
         {"field": "Gender", "type": "nominal", "title": "Gender"},
-        {"field": "Fatalities", "type": "quantitative", "title": "Number of fatalities in"},
+        {"field": "Fatalities", "type": "quantitative", "title": "Number of fatalities"},
         {"field": "Time", "type": "temporal", "title": "Time period"}
-      ]
+      ],
       
+      "opacity": {
+        "condition": {"param": "gender", "value": 1},
+        "value": 0.2
+      }
       
     }
 
