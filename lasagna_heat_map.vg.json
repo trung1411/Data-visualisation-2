@@ -3,8 +3,8 @@
     "title": { "text": "Number of fatalities categorised by gender from Jan 2018 to July 2023" },
     
     "data":{
-      "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/fatalities_weekdat_time.csv",
-      "format": {"type": "csv"},
+      "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/fatalities_weekday_time.csv",
+      "format": {"type": "csv"}
     },
     "mark":"rect",
     "encoding": {
@@ -13,7 +13,7 @@
             "field": "time_period",
             "title": "Hour of the day",
             "axis": {
-                "format": "%HH:MM",
+                "format": "%HH:MM"
                 
             }
 
@@ -25,7 +25,9 @@
             "title": "Fatalities count"
         },
         "y": {
-            "field": ""
+            "field": "weekday",
+            "type": "nominal",
+            "title": "Day of Week"
         }
     }
     
