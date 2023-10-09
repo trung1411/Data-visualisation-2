@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible", content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="vega_lite_vis.js"></script>
+    <link rel = "stylesheet" href="website.css">
+    <title>First Vega-Lite graph </title>
+</head>
+<body> 
+
+     
+    <h1> <span> ROAD SAFETY DOWN UNDER: A 5-Year Analysis of Fatalities on Australian Roads  </span>
+    </h1>
+            
+    <h2> <span> Name: Thanh Trung Tran <br>
+        Studnet No: 3244 6454</span>
+    </h2>
+    </div>
+    
+    
+    <div class = "container"> 
+        <p>  
+            The <span class = "bolded_black"> <a href = "https://data.gov.au/data/dataset/australian-road-deaths-database" > Australian Road Deaths Datbase (ARDD) </a>  </span> provide basic detail of road transport  crash fatalities in Australia as reported  
+            by the police each month to the State and Territory road safety authorities. This website aims to generate several visualisations
+            to delve into and perform a more insightful analysis on the number of crashes and fatalities in different States of Australia in the
+            last 5 years - from Jan 2018 to July 2023. Through out the 5 year period from Jan 2018 to July 2023, Australia has recorded a total of 
+            <span class = "bolded_blue"> 5978 </span>fatal crashes nationwide, which results in a total of 
+            <span class = "bolded_blue"> 6457 </span> fatalities. Out of that approximately 3/4 of them are male which is over three times as much as that of female
+            (4805 and 1640 respectively) with 12 fatalities where the gender was unknown.
+                
+                
+        </p>
+        <div id = "chloro_map"> </div>
+        <p class = "caption"> <span> Figure 1: Chloropleth Map  </span>
+            
+        </p>
+    </div>
+    
+    <!-- <div style ="width: fit-content;" id="chloro_map"> </div> -->
+    
+    
+    <!-- <div     id = "bar_chart"></div> -->
+    <div class = "container">
+        <p>
+             
+            While the current total sex ratio of the total population is 0.994 (meaning there are 994 males per 1000 females). The yearly road crash 
+            fatalities suggest that the total number of road fatalities for male has been consitently higher than that of female for the past 5 years.
+            Such trend is showcased by this area line chart which depicts the number of road crashes fatalities categorised by Gender from Jan 2018 to July 2023            
+            This line chart has a hover line with annotated tooltips to help reader better understand the visualisation.
+         </p>
+         <div id = "line_chart"> </div>
+         <p class = "caption"> <span> Figure 2: Time series Line Chart</span></p>
+    </div>
+
+    <div class = "container"> 
+        <p>
+            Something will be written here
+
+        </p>
+        <div id = "bar_chart2"> </div>
+        <p class = "caption"> <span> Figure 3: Pie Chart</span></p>
+    </div>
+    
+    <!-- <div style="width: fit-content;" id = "line_chart">  </div> -->
+
+    
+    
+    
+</body>
+</html>
