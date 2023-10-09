@@ -1,0 +1,34 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": { "text": "Number of fatalities categorised by gender from Jan 2018 to July 2023" },
+    
+    "data":{
+      "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/fatalities_weekdat_time.csv",
+      "format": {"type": "csv"},
+    },
+    "mark":"rect",
+    "encoding": {
+        "x": {
+            "timeUnit":"hoursminutes",
+            "field": "time_period",
+            "title": "Hour of the day",
+            "axis": {
+                "format": "%HH:MM",
+                
+            }
+
+            
+        },
+        "color": {
+            "field": "fatalities",
+            "type": "quantitative",
+            "title": "Fatalities count"
+        },
+        "y": {
+            "field": ""
+        }
+    }
+    
+
+}
+    
