@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": { "text": "Number of fatalities categorised by gender from Jan 2018 to July 2023" },
+    "title": { "text": "Fatalities count during 24 hours in the past 5 years 2023" },
     
     "data":{
       "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/fatalities_weekday_time.csv",
@@ -9,11 +9,13 @@
     "mark":"rect",
     "encoding": {
         "x": {
-            "timeUnit":"hoursminutes",
+            "timeUnit":"hours",
             "field": "time_period",
             "title": "Hour of the day",
             "axis": {
-                "format": "%HH:MM"
+                "format": "%H",
+                "labelAngle": 0,
+                "labelOverlap":false
                 
             }
 
@@ -27,9 +29,16 @@
         "y": {
             "field": "weekday",
             "type": "nominal",
-            "title": "Day of Week"
-        }
-    }
+            "title": "Day of Week",
+            "sort": ["Monday", "Tuesday", "Wednesday", "Thursdsay", "Friday", "Saturday", "Sunday"]
+        },
+        "tooltip": [
+          {"field": "fatalities", "title": "Fatalities count"},
+          {"field": "weekday", "type": "ordinal", "title": "Day of Week"},
+          {"field": "time_period", "type": "temporal", "title": "Time", "timeUnit": "hoursminutes"  }
+        ]
+    },
+    "config": {}
     
 
 }
