@@ -3,7 +3,9 @@ body {
     background-size: cover;
 }
 
-
+#chloro_map {
+    margin-bottom: 30px;
+}
 
 #line_chart {
     margin-top: 50px;
@@ -14,40 +16,29 @@ body {
     margin-top: 20px;
 }
 
-.container1 {
+.container {
     color: black;
     width: 50%;
-    height: 700px;
+    height: auto;
     text-align: justify;
     padding: 10px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
-.container2 {
-    color: black;
-    width: 50%;
-    height: 700px;
-    text-align: justify;
-    padding: 10px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    
-    
-}
+
+
+
 .caption span {
     color: black;
     background-color: antiquewhite;
     font-size: smaller;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 h1 {
-    color:lightsalmon;
+    color:black;
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     display: initial-letter-align;
 }
 
