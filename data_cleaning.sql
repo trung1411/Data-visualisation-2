@@ -3,8 +3,55 @@ select distinct age_group from ardd_fatalities;
 select count(*) from ardd_fatal_crashes; -- 5978 fatal crashes
 
 create table crashes_fatalities 
-as select count(crash_id) as number_of_crashes, number_of_fatalities from ardd_fatal_crashes group by number_of_fatalities;
+as select count(crash_id) as number_of_crashes,  number_of_fatalities from ardd_fatal_crashes group by number_of_fatalities;
 
+select * from ardd_fatal_crashes;
+select * from crashes_fatalities;
+
+alter table ardd_fatal_crashes add time_period DATE;
+
+alter session set nls_date_format ='MM/DD/YYYY HH24:MI:SS';
+update ardd_fatal_crashes set time_period = to_date(time, 'HH24:MI');
+
+select * from ardd_fatalities;
+update ardd_fatalities set time = '0'||time where length(time) < 5;
+alter table ardd_fatalities add time_period DATE;
+update ardd_fatalities set time_period = to_date(time, 'HH24:MI');
+
+-- Changing the time by rounding them down to the nearest hours (21: 01 to 21:00, 21:45 to 21:00)
+select * from ardd_fatalities;
+update ardd_fatalities set time_period = case
+when substr(time, 1, 2) = '00' then to_date('00:00', 'HH24:MI')
+when substr(time, 1, 2) = '01' then to_date('01:00', 'HH24:MI')
+when substr(time, 1, 2) = '02' then to_date('02:00', 'HH24:MI')
+when substr(time, 1, 2) = '03' then to_date('03:00', 'HH24:MI')
+when substr(time, 1, 2) = '04' then to_date('04:00', 'HH24:MI')
+when substr(time, 1, 2) = '05' then to_date('05:00', 'HH24:MI')
+when substr(time, 1, 2) = '06' then to_date('06:00', 'HH24:MI')
+when substr(time, 1, 2) = '07' then to_date('07:00', 'HH24:MI')
+when substr(time, 1, 2) = '08' then to_date('08:00', 'HH24:MI')
+when substr(time, 1, 2) = '09' then to_date('09:00', 'HH24:MI')
+when substr(time, 1, 2) = '10' then to_date('10:00', 'HH24:MI')
+when substr(time, 1, 2) = '11' then to_date('11:00', 'HH24:MI')
+when substr(time, 1, 2) = '12' then to_date('12:00', 'HH24:MI')
+when substr(time, 1, 2) = '13' then to_date('13:00', 'HH24:MI')
+when substr(time, 1, 2) = '14' then to_date('14:00', 'HH24:MI')
+when substr(time, 1, 2) = '15' then to_date('15:00', 'HH24:MI')
+when substr(time, 1, 2) = '16' then to_date('16:00', 'HH24:MI')
+when substr(time, 1, 2) = '17' then to_date('17:00', 'HH24:MI')
+when substr(time, 1, 2) = '18' then to_date('18:00', 'HH24:MI')
+when substr(time, 1, 2) = '19' then to_date('19:00', 'HH24:MI')
+when substr(time, 1, 2) = '20' then to_date('20:00', 'HH24:MI')
+when substr(time, 1, 2) = '21' then to_date('21:00', 'HH24:MI')
+when substr(time, 1, 2) = '22' then to_date('22:00', 'HH24:MI')
+else to_date('23:00', 'HH24:MI') end;
+
+-- Create csv file for lasagna heat map
+create table fatalities_weekday_time as 
+select count(crash_id) as number_of_fatalities, dayweek, time_period from ardd_fatalities group by dayweek, time_period order by dayweek, time_period;
+select sum(number_of_fatalities) from fatalities_weekday_time;
+
+select * from  fatalities_weekday_time;
 
 
 -- Update state in ardd_fatal_crashes
