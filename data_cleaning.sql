@@ -50,9 +50,9 @@ else to_date('23:00', 'HH24:MI') end;
 create table fatalities_weekday_time as 
 select count(crash_id) as number_of_fatalities, dayweek, time_period from ardd_fatalities group by dayweek, time_period order by dayweek, time_period;
 select sum(number_of_fatalities) from fatalities_weekday_time;
-
-select * from  fatalities_weekday_time;
-
+ 
+select * from  fatalities_weekday_time where to_char(time_period, 'HH:MM') = '02:10';
+select * from fatalities_weekday_time where dayweek = 'Monday';
 
 -- Update state in ardd_fatal_crashes
 alter table ardd_fatal_crashes modify state varchar(100);
