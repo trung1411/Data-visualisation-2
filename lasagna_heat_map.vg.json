@@ -35,7 +35,7 @@
         "tooltip": [
           {"field": "fatalities", "title": "Fatalities count"},
           {"field": "weekday", "type": "ordinal", "title": "Day of Week"},
-          {"field": "time_period", "type": "temporal", "title": "Time", "timeUnit": "hoursminutes"  }
+          {"field": "time_period", "type": "temporal", "title": "Time", "timeUnit": "hoursminutes" }
         ]
     },
     "config": {}
