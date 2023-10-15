@@ -1,45 +1,43 @@
 body {
-    background-image: url('image/sky.jpg');
-    background-size: cover;
+    background-color: lightgray;
 }
 
-#chloro_map {
-    margin-bottom: 30px;
-}
-
-#line_chart {
-    margin-top: 50px;
-    margin-bottom: 20px;
-}
-
-#bar_chart2 {
-    margin-top: 20px;
-}
-
-.container {
-    color: black;
-    width: 50%;
-    height: auto;
-    text-align: justify;
-    padding: 10px;
+.page {
+    width: 75%;
+    background-color: white;
     margin: auto;
+    padding: 50px;
+    padding-top: 35px;
 }
 
+.vis-container {
+    width: 100%;
+}
 
+.description-left {
+    padding-right: 20px;
+}
+
+.description-right {
+    padding-left: 20px;
+}
 
 .caption span {
     color: black;
     background-color: antiquewhite;
     font-size: smaller;
     text-align: center;
-    margin-bottom: 30px;
+    
+}
+
+#title {
+    text-align: center;
 }
 
 h1 {
-    color:black;
-    text-align: center;
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
-    display: initial-letter-align;
+    
 }
 
 h1 span{
@@ -53,9 +51,7 @@ h2 {
     display: initial-letter-align;
 }
 
-h2 span{
-    background-color: transparent;
-}
+
 
 
 .bolded_black{
@@ -63,22 +59,11 @@ h2 span{
     font-weight:bold;
 }
 
-.bolded_blue{
-    color: blue;
-    font-weight:bold;
-}
-
 p{
     font-family: Verdana;
     font-size: 20px;
+    text-align: justify;
 }
-
-p span {
-    background: fixed;
-    background-color: transparent;
-    text-align: center;
-}
-
 
 h2{
     text-align: center;
