@@ -2,25 +2,49 @@
   
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": { "text": "Fatalities count during 24 hours in the past 5 years 2023" },
+    "title": { "text": "Fatalities by crash type over the past 5 years" },
     
     "data":{
       "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/crash_type_age.csv",
       "format": {"type": "csv"}
     },
+    "width": 250,
     "mark":"bar",
     "encoding": {
         "x": {
             "field": "age_group",
             "axis": {
-                
+                "labelAngle": 0
             }
-
         },
         "y": {
             "field": "fatalities",
-            "stack": "normalize"
-        }
+            "stack":"normalize",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "crash_type",
+            "type": "nominal",
+            "scale": {
+                "domain": [
+                    "Single",
+                    "Multiple"
+                ],
+                "range": [
+                    "#1f77b4",
+                    "#e7ba52"
+                ]
+            },
+            "legend": {
+                "orient": "right",
+                "title": "Crash Type"
+            }
+        },
+        "tooltip": [
+            {"field": "crash_type", "title": "Crash Type"},
+            {"field": "fatalities","title": "Total fatalities"}
+        ]
     }
+    
 
 }
