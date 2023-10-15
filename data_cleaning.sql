@@ -46,12 +46,28 @@ when substr(time, 1, 2) = '21' then to_date('21:00', 'HH24:MI')
 when substr(time, 1, 2) = '22' then to_date('22:00', 'HH24:MI')
 else to_date('23:00', 'HH24:MI') end;
 
+
+select * from ardd_fatalities;
+select distinct(bus_inv) from ardd_fatalities;
+update ardd_fatalities set bus_inv = 'unknown' where bus_inv = '-9';
+update ardd_fatalities set heavy_truck_inv = 'unknown' where heavy_truck_inv = '-9';
+update ardd_fatalities set articulated_truck_inv = 'unknown' where articulated_truck_inv = '-9';
+delete from ardd_fatalities where crash_type = '-9';
+
+
+create table crash_type_age as select count(crash_id) as fatalities, age_group, crash_type 
+from ardd_fatalities group by crash_type, age_group;
+
+
+
+rollback transaction;
+
 -- Create csv file for lasagna heat map
 create table fatalities_weekday_time as 
 select count(crash_id) as number_of_fatalities, dayweek, time_period from ardd_fatalities group by dayweek, time_period order by dayweek, time_period;
 select sum(number_of_fatalities) from fatalities_weekday_time;
  
-select * from  fatalities_weekday_time where to_char(time_period, 'HH:MM') = '02:10';
+
 select * from fatalities_weekday_time where dayweek = 'Monday';
 
 -- Update state in ardd_fatal_crashes
@@ -67,7 +83,7 @@ when state = 'Tas' then 'Tasmania'
 when state = 'Vic' then 'Victoria'
 else 'Western Australia' end;
 
-
+select * from ardd_fatalities;
 -- Updating age group in ardd_fatalities
 update ardd_fatalities set age_group = 
 case 
@@ -78,7 +94,7 @@ when age_group = '65_to_74' then '65-74'
 when age_group = '0_to_16' then '0-16'
 when age_group = '40_to_64' then '40-64'
 else 'unknown' 
-end where age_group in ('75_or_older', '17_to_25', '26_to_39','65_to_74','0_to_16','40_to_64');
+end where age_group in ('75_or_older', '17_to_25', '26_to_39','65_to_74','0_to_16','40_to_64', '-9');
 
 -- Updating gender
 update ardd_fatalities set gender = 'unknown' where gender = '-9';
@@ -101,6 +117,7 @@ select * from fit3179_fat_per_year;
 drop table fit3179_fat_per_year;
 create table FIT3179_fat_per_year as
 select count(crash_id) as fatalities_per_year, state, year from ardd_fatalities group by state, year order by year asc, state asc;
+
 
 update fit3179_fat_per_year set state =  
 case
@@ -149,8 +166,8 @@ update fit3179_fat_per_year_gender set time_id = '0'||time_id where month < 10;
 update fit3179_fat_per_year_gender set time = to_date(time_id, 'MMYYYY') where month < 10;
 
 
-alter table fit3179_fat_per_year_gender modify state varchar(100);
-update fit3179_fat_per_year_gender set state =  
+alter table ardd_fatalities modify state varchar(100);
+update ardd_fatalities set state =  
 case
 when state = 'ACT' then 'Australian Capital Territory'
 when state = 'NSW' then 'New South Wales'
@@ -161,8 +178,4 @@ when state = 'Tas' then 'Tasmania'
 when state = 'Vic' then 'Victoria'
 else 'Western Australia' end;
 
-select * from fit3179_fat_per_year_gender;
-
-
-
-
+select * from ardd_fatalities;
