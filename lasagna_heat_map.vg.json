@@ -26,9 +26,8 @@
         },
         "y": {
             "field": "weekday",
-            "type": "nominal",
-            "title": "Day of Week",
-            "sort": ["Monday", "Tuesday", "Wednesday", "Thursdsay", "Friday", "Saturday", "Sunday"]
+            "type": "ordinal"
+            
         },
         "tooltip": [
           {"field": "fatalities", "title": "Fatalities count"},
