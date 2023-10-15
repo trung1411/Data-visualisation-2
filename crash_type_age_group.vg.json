@@ -1,0 +1,26 @@
+
+  
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": { "text": "Fatalities count during 24 hours in the past 5 years 2023" },
+    
+    "data":{
+      "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/crash_type_age.csv",
+      "format": {"type": "csv"}
+    },
+    "mark":"bar",
+    "encoding": {
+        "x": {
+            "field": "age_group",
+            "axis": {
+                
+            }
+
+        },
+        "y": {
+            "field": "fatalities",
+            "stack": "normalize"
+        }
+    }
+
+}
