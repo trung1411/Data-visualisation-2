@@ -48,7 +48,6 @@ h2 {
     color: black;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    display: initial-letter-align;
 }
 
 
@@ -61,12 +60,14 @@ h2 {
 
 p{
     font-family: Verdana;
-    font-size: 20px;
     text-align: justify;
+    font-size: 14px;
+    
 }
 
 h2{
     text-align: center;
+    
 }
 
 
