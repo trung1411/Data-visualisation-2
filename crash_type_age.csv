@@ -1,4 +1,4 @@
-"FATALITIES","AGE_GROUP","CRASH_TYPE"
+fatalities,age_group,crash_type
 114,"0-16","Multiple"
 1108,"40-64","Single"
 276,"65-74","Multiple"
