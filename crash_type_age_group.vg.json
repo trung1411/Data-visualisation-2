@@ -15,7 +15,8 @@
             "field": "age_group",
             "axis": {
                 "labelAngle": 0
-            }
+            },
+            "title": "Age Group"
         },
         "y": {
             "field": "fatalities",
