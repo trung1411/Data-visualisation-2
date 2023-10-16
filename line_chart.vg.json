@@ -7,7 +7,7 @@
       "format": {"type": "csv"}
     
     },
-    "width": "container",
+    "width": 500,
     "encoding": {
       "x": {
         "field": "Time",
