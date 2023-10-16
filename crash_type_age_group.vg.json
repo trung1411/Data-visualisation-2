@@ -20,7 +20,8 @@
         "y": {
             "field": "fatalities",
             "stack":"normalize",
-            "type": "quantitative"
+            "type": "quantitative",
+            "title": null
         },
         "color": {
             "field": "crash_type",
