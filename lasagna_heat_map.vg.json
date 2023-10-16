@@ -6,7 +6,7 @@
       "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/fatalities_weekday_time.csv",
       "format": {"type": "csv"}
     },
-    "width": 300,
+    "width": 400,
     "mark":"rect",
     "encoding": {
         "x": {
@@ -14,9 +14,7 @@
             "field": "time_period",
             "title": "Hour of the day",
             "axis": {
-                "labelExpr": "datum.label[0]+datum.label[1]",
-                "labelAngle": 0,
-                "labelOverlap":false   
+                "labelExpr": "datum.label[0]+datum.label[1]"   
             }
         },
         "color": {
@@ -26,7 +24,9 @@
         },
         "y": {
             "field": "weekday",
-            "type": "ordinal"
+            "type": "ordinal",
+            "title": null,
+            "sort": ["Monday"]
             
         },
         "tooltip": [
