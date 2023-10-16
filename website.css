@@ -9,6 +9,9 @@ body {
     padding: 50px;
     padding-top: 35px;
 }
+.pure-g{
+    margin-bottom: 30px;
+}
 
 .vis-container {
     width: 100%;
