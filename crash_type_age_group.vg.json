@@ -8,7 +8,7 @@
       "url": "https://raw.githubusercontent.com/trung1411/Data-visualisation-2/main/crash_type_age.csv",
       "format": {"type": "csv"}
     },
-    "width": 250,
+    "width": "container",
     "mark":"bar",
     "encoding": {
         "x": {
