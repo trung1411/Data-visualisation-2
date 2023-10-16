@@ -2,8 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": { "text": "Road Crash Fatality in Australia from Jan 2018 to July 2023" },
     "projection": {"type": "equirectangular"},
-    "width": 550,
-    "height": 300,
+    "width": "container",
     "params": [
         {
             "name": "Year_selection",
